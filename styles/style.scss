@@ -1,0 +1,126 @@
+@use "utilities/global" as *;
+
+@include setup;
+
+body {
+  background-color: color(cream);
+  padding: 28px 16px;
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  background-color: color(white);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 0;
+  max-width: 343px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  @media (min-width: $breakpoint) {
+    flex-direction: row;
+    max-width: 600px;
+  }
+}
+
+.card__product-image {
+  @media (min-width: $breakpoint) {
+    flex: 0 0 300px;
+  }
+}
+
+.card__product-info {
+  padding: 24px;
+  @media (min-width: $breakpoint) {
+    padding: 32px;
+  }
+}
+
+.info__product-type {
+  @include setFont(rem(12px), 15px, 500);
+  font-family: $font-montserrat;
+  color: color(dark-grayish-blue);
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: em(12px, 12px);
+  @media (min-width: $breakpoint) {
+    margin-bottom: em(20px, 12px);
+  }
+}
+
+.info__product-name {
+  @include setFont(rem(32px), 32px, 700);
+  font-family: $font-fraunces;
+  color: color(very-dark-blue);
+  margin-bottom: em(16px, 32px);
+  @media (min-width: $breakpoint) {
+    margin-bottom: em(24px, 32px);
+  }
+}
+
+.info__product-description {
+  @include setFont(rem(14px), 23px, 500);
+  font-family: $font-montserrat;
+  color: color(dark-grayish-blue);
+  margin-bottom: em(24px, 14px);
+  @media (min-width: $breakpoint) {
+    margin-bottom: em(29px, 14px);
+  }
+}
+
+.info__product-price {
+  display: flex;
+  align-items: center;
+  max-width: rem(194px);
+  gap: 24px;
+  margin-bottom: 20px;
+  @media (min-width: $breakpoint) {
+    margin-bottom: 30px;
+  }
+}
+
+.price--current {
+  @include setFont(rem(32px), 32px, 700);
+  font-family: $font-fraunces;
+  color: color(dark-cyan);
+}
+
+.price--original {
+  @include setFont(rem(13px), 23px, 500);
+  font-family: $font-montserrat;
+  color: color(dark-grayish-blue);
+  text-decoration: line-through;
+}
+
+.cta-button {
+  width: 100%;
+  background-color: color(dark-cyan);
+  color: color(white);
+  @include setFont(rem(14px), 17px, 700);
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  padding-block: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11.6px;
+  &:hover {
+    background-color: hsla(157, 43%, 18%, 1);
+  }
+}
+
+//original styling
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  bottom: 1em;
+  left: 0;
+  z-index: -1;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
